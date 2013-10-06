@@ -24,8 +24,11 @@ class Grass < Formula
 
   depends_on "cairo" if MacOS.leopard?
 
-  def patches
-    DATA
+  def patches;
+    if build.head?
+      "https://gist.github.com/jctull/0fe3db92a3e7c19fa6e0/raw/42e819f0a9b144de782c94f730dbc4da136e9227/grassPatchHead.diff";
+    else DATA;
+    end
   end
 
   def options
